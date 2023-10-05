@@ -30,14 +30,6 @@ module.exports = (env, argv) => {
             'sass-loader',
           ],
         },
-        {
-          test: /\.tsx?$/,
-          enforce: 'pre',
-          include: [path.resolve(__dirname, './src'), path.resolve(__dirname, './service-worker')],
-          use: [
-            { loader: 'eslint-loader', options: { emitErrors: true } },
-          ],
-        },
         // Loader for TypeScript files in ./src
         {
           test: /\.tsx?$/,
@@ -54,25 +46,6 @@ module.exports = (env, argv) => {
                 ...tsConfigOptions,
                 configFile: path.resolve(__dirname, './src/tsconfig.json'),
               }
-            },
-          ]
-        },
-        // Loader for service-worker TypeScript files
-        {
-          test: /\.tsx?$/,
-          include: path.resolve(__dirname, './service-worker'),
-          exclude: [/node_modules/],
-          use: [
-            {
-              loader: 'babel-loader',
-              options: { babelrc: true },
-            },
-            {
-              loader: 'ts-loader',
-              options: {
-                ...tsConfigOptions,
-                configFile: path.resolve(__dirname, './service-worker/tsconfig.json'),
-              },
             },
           ]
         },
@@ -96,18 +69,6 @@ module.exports = (env, argv) => {
           { from: path.resolve(__dirname, './public') },
         ],
       }),
-
-      new webpack.HotModuleReplacementPlugin(),
-      ...(isProduction ? [
-        new InjectManifest({
-          swSrc: path.resolve(__dirname, './service-worker/serviceWorkerWorkbox.ts'),
-          swDest: 'service-worker.js',
-        }),
-      ] : [
-        new ForkTsCheckerWebpackPlugin({
-          tsconfig: path.resolve(__dirname, './src/tsconfig.json'),
-        }),
-      ]),
     ],
     devServer: {
       port: 5000,
