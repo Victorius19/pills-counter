@@ -52,7 +52,7 @@ module.exports = (env, argv) => {
       ],
     },
     resolve: {
-      extensions: [ '.tsx', '.ts', '.js' ],
+      extensions: [ '.tsx', '.ts', '.js', 'ttf' ],
     },
     output: {
       path: path.resolve(__dirname, './docs'),
