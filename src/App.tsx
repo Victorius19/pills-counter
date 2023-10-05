@@ -1,4 +1,5 @@
 import React from 'react';
+import OneAnswer from './components/OneAnswer';
 import './styles.scss';
 // import { createMuiTheme } from '@material-ui/core';
 
@@ -22,10 +23,27 @@ const App = () => {
   const test = 0;
 
   return (
-    <p>
-      HELLO
-      {test}
-    </p>
+    <>
+      <div>
+        <p className="naturalLanguage">
+          Есть _____ упаковок лекарства.
+          В каждой пачке _____ таблеток, в каждой таблетке _____ мг действующего вещества.
+          Каждый день надо пить _____ таблеток (или _____ мг).
+        </p>
+      </div>
+      <div className="answer">
+        <OneAnswer
+          count={0}
+          text="Одной пачки хватит на:"
+          theme="yellow"
+        />
+        <OneAnswer
+          count={0}
+          text="Одной пачки хватит на:"
+          theme="blue"
+        />
+      </div>
+    </>
   );
 };
 

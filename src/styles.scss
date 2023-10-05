@@ -6,39 +6,67 @@ body {
   font-family: 'Inter', sans-serif;
   font-family: 'Montserrat', sans-serif;
   background: #4A59D1;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 .root {
   display: flex;
   margin: 0;
+  background: #fff;
 }
 
-.app {
-  max-width: 800px;
-  margin: auto;
+.naturalLanguage {
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 60px 22px;
+  background: #4A59D1;
+}
+
+.answer {
+  background: #fff;
+  border-radius: 32px 32px 0 0;
+  height: 1000px;
+  margin-left: -2px;
+  padding: 22px;
+  width: calc(100% - 40px);
+  color: rgb(44, 44, 44);
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.oneAnswer {
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 22px;
+  border-radius: 16px;
+  font-size: 64px;
+  line-height: 24px;
+  margin-top: 10px;
+  margin-bottom: 28px;
 
-  .wrapper {
-    display: flex;
-    justify-items: space-between;
-    flex-wrap: wrap;
-    white-space: normal;
-
-    button {
-      flex: 1 0 25%;
-      margin: 15px;
-    }
+  span {
+    font-size: 18px;
   }
 
-  .counter {
-    flex: 1 0 100%;
-    margin: auto;
+  &__yellow {
+    background: #FFDFA4;
   }
 
-  footer {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
+  &__blue {
+    background: #E2F1FF;
   }
 }
