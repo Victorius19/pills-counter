@@ -50,9 +50,9 @@ const App = () => {
       if (doze !== null && dailyDoze !== null) {
         return (boxNumber * boxCapacity * doze) / dailyDoze;
       }
-
-      return null;
     }
+
+    return null;
   }, [boxNumber, boxCapacity, doze, dailyCount, dailyDoze]);
 
   return (

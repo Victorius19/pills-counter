@@ -12,7 +12,7 @@ const OneAnswer = (props: {count: number | null, text: string, theme: 'blue' | '
       {text}
       <div className={`oneAnswer oneAnswer__${theme}`}>
         <div>
-          {count || 'X'}
+          {(count !== null && !Number.isNaN(count)) ? Math.ceil(count) : 'X'}
           <br />
           <span>дней</span>
         </div>
