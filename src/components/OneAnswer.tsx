@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OneAnswer = (props: {count: number, text: string, theme: 'blue' | 'yellow'}) => {
+const OneAnswer = (props: {count: number | null, text: string, theme: 'blue' | 'yellow'}) => {
   const {
     text,
     count,
@@ -12,7 +12,7 @@ const OneAnswer = (props: {count: number, text: string, theme: 'blue' | 'yellow'
       {text}
       <div className={`oneAnswer oneAnswer__${theme}`}>
         <div>
-          {count === 0 ? 'X' : count}
+          {count || 'X'}
           <br />
           <span>дней</span>
         </div>

@@ -27,44 +27,62 @@ const App = () => {
   const [dailyCount, setDailyCount] = React.useState<null | number>(null);
   const [dailyDoze, setDailyDoze] = React.useState<null | number>(null);
 
+  const daysWithOneBox = React.useMemo(() => {
+    if (boxCapacity !== null) {
+      if (dailyDoze !== null && doze !== null) {
+        return (boxCapacity * doze) / dailyDoze;
+      }
+
+      if (dailyCount !== null) {
+        return boxCapacity / dailyCount;
+      }
+    }
+
+    return null;
+  }, [boxNumber, boxCapacity, doze, dailyCount, dailyDoze]);
+
+  const daysWithAllBox = React.useMemo(() => {
+    if (boxNumber !== null && boxCapacity !== null) {
+      if (dailyCount !== null) {
+        return (boxNumber * boxCapacity) / dailyCount;
+      }
+
+      if (doze !== null && dailyDoze !== null) {
+        return (boxNumber * boxCapacity * doze) / dailyDoze;
+      }
+
+      return null;
+    }
+  }, [boxNumber, boxCapacity, doze, dailyCount, dailyDoze]);
+
   return (
     <>
       <div>
         <p className="naturalLanguage">
           Есть
-          {' '}
           <Input func={setBoxNumber} />
-          {' '}
           упаковок лекарства.
-          В каждой пачке
-          {' '}
+          В каждой упаковке
           <Input func={setBoxCapacity} />
-          {' '}
-          таблеток, в каждой таблетке
-          {' '}
+          таблеток, а в каждой таблетке
           <Input func={setDoze} />
-          {' '}
           мг действующего вещества.
           Каждый день надо пить
-          {' '}
-          <Input func={setDailyCount} />
-          {' '}
+          <Input func={setDailyCount} disabled={dailyDoze !== null} />
           таблеток (или
-          {' '}
-          <Input func={setDailyDoze} />
-          {' '}
-          мг).
+          <Input func={setDailyDoze} disabled={dailyCount !== null} />
+          мг)
         </p>
       </div>
       <div className="answer">
         <OneAnswer
-          count={0}
-          text="Одной пачки хватит на:"
+          count={daysWithOneBox}
+          text="Одной упаковки хватит на:"
           theme="yellow"
         />
         <OneAnswer
-          count={0}
-          text="Одной пачки хватит на:"
+          count={daysWithAllBox}
+          text={`${boxNumber || 'X'} упаковок хватит на:`}
           theme="blue"
         />
       </div>

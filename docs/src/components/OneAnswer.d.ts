@@ -1,6 +1,6 @@
 /// <reference types="react" />
 declare const OneAnswer: (props: {
-    count: number;
+    count: number | null;
     text: string;
     theme: 'blue' | 'yellow';
 }) => JSX.Element;
