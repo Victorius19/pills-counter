@@ -12,7 +12,7 @@ const OneAnswer = (props: {count: number, text: string, theme: 'blue' | 'yellow'
       {text}
       <div className={`oneAnswer oneAnswer__${theme}`}>
         <div>
-          {count}
+          {count === 0 ? 'X' : count}
           <br />
           <span>дней</span>
         </div>
