@@ -23,7 +23,7 @@ const Input = (props: {
   return (
     <>
       {' '}
-      <input className="input" onChange={handler} type="number" disabled={disabled} />
+      <input className="input" min="0" pattern="[0-9]*" onChange={handler} type="number" disabled={disabled} />
       {' '}
     </>
   );

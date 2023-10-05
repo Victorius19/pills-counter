@@ -98,7 +98,9 @@ body {
   font-weight: bold;
   color: #fff;
   margin: 0;
+  padding: 0;
   border-radius: 0;
+  height: 23px;
 
   &[disabled] {
     border-bottom: solid 2px red;
@@ -116,11 +118,15 @@ body {
   .oneAnswer {
     padding: 5px;
   }
+  .input {
+    height: 20px;
+  }
 }
 
 @media (max-height: 570px) {
   .naturalLanguage {
     font-size: 15px;
     padding: 10px 22px;
+    height: 15px;
   }
 }

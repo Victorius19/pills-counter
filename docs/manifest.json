@@ -1,7 +1,7 @@
 {
-  "short_name": "React PWA App",
-  "name": "React PWA App",
-  "description": "A calculator application",
+  "short_name": "Счетчик лекарств",
+  "name": "Счетчик лекарств",
+  "description": "Счетчик лекарств",
   "categories": ["utilities", "tools"],
   "icons": [
     {
