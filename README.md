@@ -15,6 +15,7 @@ instead of the latest one with your changes.
 You can debug service workers locally by building the production bundle and serving it like this:
 
 ```
+export NODE_OPTIONS=--openssl-legacy-provider
 yarn run build
 yarn run serve
 ```
